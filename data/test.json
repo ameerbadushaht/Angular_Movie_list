@@ -1,0 +1,77 @@
+{
+  "movies": [
+    {
+      "title": "Interstellar",
+      "duration": 169,
+      "releaseDate": "2014-11-07",
+      "language": "ENGLISH",
+      "imageUrl": "https://c4.wallpaperflare.com/wallpaper/536/846/466/interstellar-movie-movies-wallpaper-preview.jpg",
+      "id": 1
+    },
+    {
+      "title": "Pirates of the Caribbean",
+      "duration": 143,
+      "releaseDate": "2003-08-15",
+      "language": "English",
+      "imageUrl": "https://c4.wallpaperflare.com/wallpaper/482/935/830/captain-jack-sparrow-4k-pirates-of-the-caribbean-dead-men-tell-no-tales-johnny-depp-wallpaper-preview.jpg",
+      "id": 2
+    },
+    {
+      "title": "Avengers: End Game",
+      "duration": 181,
+      "releaseDate": "2019-04-26",
+      "language": "English",
+      "imageUrl": "https://c4.wallpaperflare.com/wallpaper/296/400/37/movie-avengers-infinity-war-black-panther-movie-black-widow-wallpaper-preview.jpg",
+      "id": 3
+    },
+    {
+      "title": "Avatar 2",
+      "duration": 192,
+      "releaseDate": "2022-12-16",
+      "language": "English",
+      "imageUrl": "https://c4.wallpaperflare.com/wallpaper/656/49/254/5c1cb1041a1e7-wallpaper-preview.jpg",
+      "id": 4
+    },
+    {
+      "title": "Kung Fu Panda 3",
+      "duration": 95,
+      "releaseDate": "2016-04-01",
+      "language": "English",
+      "imageUrl": "https://c4.wallpaperflare.com/wallpaper/648/718/445/kung-fu-panda-secrets-of-the-furious-five-wallpaper-preview.jpg",
+      "id": 9
+    },
+    {
+      "title": "Kong: Skull Island",
+      "duration": 118,
+      "releaseDate": "2017-10-17",
+      "language": "English",
+      "imageUrl": "https://c4.wallpaperflare.com/wallpaper/877/343/685/5bf53b926e915-wallpaper-preview.jpg",
+      "id": 10
+    },
+    {
+      "title": "Shawshank Redemption",
+      "duration": 144,
+      "releaseDate": "1994-10-14",
+      "language": "English",
+      "imageUrl": "https://c4.wallpaperflare.com/wallpaper/115/275/831/1994-redemption-shawshank-wallpaper-preview.jpg",
+      "id": 11
+    },
+    {
+      "title": "Jurassic World: Fallen Kingdom",
+      "duration": 129,
+      "releaseDate": "2018-06-08",
+      "language": "English",
+      "imageUrl": "https://c4.wallpaperflare.com/wallpaper/455/861/85/jurassic-world-fallen-kingdom-2018-4k-8k-wallpaper-preview.jpg",
+      "id": 12
+    }
+  ],
+  "theater": [
+    {
+      "name": "Leena",
+      "movies": "Pirates of the Caribbean",
+      "date": "2023-11-24",
+      "ticketPrice": 120,
+      "id": 1
+    }
+  ]
+}

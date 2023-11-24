@@ -1,0 +1,51 @@
+
+.purchase-movie {
+  max-width: 400px;
+  margin: auto;
+  color: #ffffff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.purchase-movie h2 {
+  text-align: center;
+  color: #64d706;
+}
+
+.purchase-movie form {
+  margin-top: 20px;
+}
+
+.purchase-movie div {
+  margin-bottom: 15px;
+}
+
+.purchase-movie label {
+  display: block;
+  margin-bottom: 5px;
+  color: #ffffff;
+}
+
+.purchase-movie input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #000000;
+  border-radius: 4px;
+}
+
+.purchase-movie button {
+  background-color: #e20000;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.purchase-movie button:disabled {
+  background-color: #c26060;
+  cursor: not-allowed;
+}

@@ -1,0 +1,75 @@
+.movie-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.movie-details {
+  width: 80%;
+  max-width: 600px;
+  border: 1px solid rgb(26, 181, 2);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  background-color: rgb(139, 223, 209);
+}
+
+.movie-backImage {
+  width: 100%;
+  height: auto;
+}
+
+.details {
+  display: flex;
+}
+
+.edit{
+  margin-top: 25px;
+  margin-left: 25px;
+}
+
+.theater {
+  padding: 25px;
+
+  ul {
+    list-style-type: none; // Remove the bullets
+    padding: 0; // Remove default padding
+    margin: 0; // Remove default margin
+  }
+
+  li {
+    margin-bottom: 8px; // Add margin between theater names
+  }
+}
+
+.details-content {
+  padding: 20px;
+
+  h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+
+  p {
+    margin-bottom: 8px;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+}
+
+button {
+  padding: 10px;
+  font-size: 1em;
+  background-color: rgb(239, 10, 10); /* Set your desired button color */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #b30000; /* Set your desired button color on hover */
+  }
+}

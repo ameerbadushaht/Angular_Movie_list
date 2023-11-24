@@ -1,0 +1,60 @@
+<br>
+<br><br>
+<br>>
+
+
+<div class="purchase-movie">
+  <h2>Movie Purchase</h2>
+
+  <div>
+    <div>
+      <label for="movies">Movie Name:</label>
+      <!-- <select id="movies" formControlName="movies" placeholder="Movie Name"  required >
+        <option value="" disabled>---Select Movie---</option>
+        <option *ngFor="let movie of filteredMovies" [value]="movie.title">
+          {{ movie.title }}
+        </option>
+      </select>
+      <br>
+      <span
+        style="color: red;"
+        *ngIf="theaterForm.get('movies')?.errors?.['required'] && theaterForm.get('movies')?.touched"
+      >
+        This field is required
+      </span>
+    </div>
+    <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p>Price: $9.99</p>
+  </div> -->
+
+  <form (ngSubmit)="purchaseMovie()" [formGroup]="purchaseForm">
+    <!-- <div>
+      <label for="fullName">Full Name:</label>
+      <input
+        type="text"
+        id="fullName"
+        name="fullName"
+        formControlName="fullName"
+        required
+      />
+    </div>
+
+    <div>
+      <label for="email">Email:</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        formControlName="email"
+        required
+      />
+    </div> -->
+
+    <!-- Payment Information (using Stripe Elements, for example) -->
+    <div>
+      <!-- Include Stripe Elements here (refer to the Stripe documentation) -->
+    </div>
+
+    <button type="submit" [disabled]="!purchaseForm.valid">Purchase Now</button>
+  </form>
+</div>

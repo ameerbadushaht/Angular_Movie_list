@@ -2,6 +2,7 @@
   <div class="form-container">
     <h2>Sign Up</h2>
     <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <p>Already have an account? <a href="/logIn">Login Here</a></p>
       <div class="form-group">
         <label for="email">Email : </label>
         <input type="email" id="email" formControlName="email" required />

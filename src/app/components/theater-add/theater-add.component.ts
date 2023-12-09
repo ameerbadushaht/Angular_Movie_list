@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { MovieService } from 'src/app/service/movie.service';
 import { Movies } from '../movie-add/movie-add.component';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-theater-add',
@@ -18,7 +19,7 @@ export class TheaterAddComponent {
   theater: any[] = [];
   allMovies: any[] = [];
   filteredMovies: any[] = [];
-  theaterForm: FormGroup;
+  accessToken: string | null;
 
   isMoviesInputFocused: boolean = false;
 
@@ -26,16 +27,20 @@ export class TheaterAddComponent {
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
+    private authService: AuthService,
     public movieService: MovieService
-  ) {}
+  ) {
+    this.accessToken = this.authService.getToken();
+  }
 
+  theaterForm = this.formBuilder.group({
+    name: [null, [Validators.required, this.capital]],
+    movies: [null, [Validators.required]],
+    date: [null, Validators.required],
+    ticketPrice: [null, [Validators.required, Validators.min(70)]],
+  });
   ngOnInit() {
-    this.theaterForm = this.formBuilder.group({
-      name: [null, [Validators.required, this.capital]],
-      movies: [null, [Validators.required]],
-      date: [null, Validators.required],
-      ticketPrice: [null, [Validators.required, Validators.min(70)]],
-    });
+
 
     // theater list
 
@@ -62,8 +67,14 @@ export class TheaterAddComponent {
 
   onSubmit() {
     if (this.theaterForm.valid) {
-      const newTheater = this.theaterForm.value;
-      this.http.post('http://localhost:3000/theater', newTheater).subscribe(
+      // const newTheater = this.theaterForm.value;
+      const newTheater: Theaters = {
+        name: this.theaterForm.value.name,
+        movies: [this.theaterForm.value.movies], // Add the necessary value for the 'movies' property
+        date: this.theaterForm.value.date,
+        ticketPrice: this.theaterForm.value.ticketPrice,
+      };
+      this.http.post(`http://localhost:3000/theater`, newTheater).subscribe(
         (response) => {
           this.movieService.setTheater(newTheater);
           console.log(response);
@@ -95,8 +106,8 @@ export class TheaterAddComponent {
 }
 
 export interface Theaters {
-  name: string;
-  movies: Movies;
+  name?: string;
+  movies: string[];
   date: string;
   ticketPrice: number;
 }

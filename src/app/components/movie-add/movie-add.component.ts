@@ -8,6 +8,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Theaters } from '../theater-add/theater-add.component';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-movie-add',
@@ -15,10 +16,18 @@ import { Theaters } from '../theater-add/theater-add.component';
   styleUrls: ['./movie-add.component.scss'],
 })
 export class MovieAddComponent {
-  movies:any[]=[]
+  movies: any[] = [];
   movieForm: FormGroup;
+  accessToken: string | null;
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, public movieService:MovieService) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthService,
+    private http: HttpClient,
+    public movieService: MovieService
+  ) {
+    this.accessToken = this.authService.getToken();
+  }
   ngOnInit() {
     this.movieForm = this.formBuilder.group({
       title: [null, [Validators.required, this.capital]],
@@ -63,7 +72,6 @@ export class MovieAddComponent {
     return null;
   }
 
-
   minDuration(control: FormControl) {
     const value = control.value;
     const hasNumber = value > 40;
@@ -74,13 +82,13 @@ export class MovieAddComponent {
   }
 }
 
-export interface Movies{
+export interface Movies {
   includes(movieTitle: string): unknown;
-  title:string;
-  duration:number;
-  releaseDate:string;
-  theater:Theaters;
-  language:string;
-  imageUrl:string;
-  id:number;
+  title: string;
+  duration: number;
+  releaseDate: string;
+  theater: Theaters;
+  language: string;
+  imageUrl: string;
+  id: number;
 }

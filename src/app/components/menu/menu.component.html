@@ -1,13 +1,19 @@
-
 <ul class="menu-list">
   <li>
     <a routerLink="/" routerLinkActive="active">Home</a>
     <a routerLink="/addMovie" routerLinkActive="active">Add Movies</a>
     <a routerLink="/addTheater" routerLinkActive="active">Add Theater</a>
-    <a href="/purchase">Purchase</a>
-    <a href="/signUp">Sign Up</a>
-    <a routerLink="/about" routerLinkActive="active">About</a>
 
+    <!-- Conditionally render links based on token existence -->
+    <ng-container *ngIf="!accessToken">
+      <a href="/signUp">Sign Up</a>
+    </ng-container>
+
+    <ng-container *ngIf="accessToken">
+      <a href="#" (click)="logout()">Logout</a>
+    </ng-container>
+
+    <a routerLink="/about" routerLinkActive="active">About</a>
   </li>
 </ul>
 

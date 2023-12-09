@@ -1,12 +1,39 @@
-<form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="title">Movie Title:</label>
-    <input type="text" id="title" formControlName="title" placeholder="Movie Title" required>
-    <span style="color: red;" *ngIf="movieForm.get('title')?.errors?.['required'] &&
-      movieForm.get('title')?.touched">This field is required</span>
-    <span style="color: red;" *ngIf="movieForm.get('title')?.errors?.['capital'] &&
-      !movieForm.get('title')?.errors?.['required'] && movieForm.get('title')?.touched">First letter should be in Capital</span>
-  </div>
+<ng-container *ngIf="!accessToken">
+  <app-sign-up></app-sign-up>
+</ng-container>
+
+<ng-container *ngIf="accessToken">
+  <!-- <app-loader *ngIf="loading"></app-loader> -->
+
+  <ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="large"
+  color="#f01c05"
+  type="line-scale"
+  [fullScreen]="true"
+  ><p style="color: white">Updating, please wait a moment...</p></ngx-spinner
+>
+
+
+
+  <form [formGroup]="movieForm" (ngSubmit)="onSubmit()" class="glassy-form">
+    <div>
+      <label for="title">Movie Title:</label>
+      <input type="text" id="title" formControlName="title" placeholder="Movie Title" required>
+      <span  style="color: red;"  *ngIf="movieForm.get('title')?.errors?.['required'] && movieForm.get('title')?.touched">
+        This field is required
+      </span>
+      <span
+      style="color: red;"
+        *ngIf="
+          movieForm.get('title')?.errors?.['capital'] &&
+          !movieForm.get('title')?.errors?.['required'] &&
+          movieForm.get('title')?.touched
+        "
+      >
+        First letter should be in Capital
+      </span>
+    </div>
   <div>
     <label for="duration">Duration (minutes):</label>
     <input type="number" id="duration" formControlName="duration" placeholder="Duration" required>
@@ -17,9 +44,9 @@
   </div>
   <div>
     <label for="releaseDate">Release Date:</label>
-    <input type="date" id="releaseDate" formControlName="releaseDate" required>
-    <span style="color: red;" *ngIf="movieForm.get('releaseDate')?.errors?.['required'] &&
-      movieForm.get('releaseDate')?.touched">Choose valid date</span>
+    <input type="date" id="releaseDate" formControlName="releaseDate" >
+    <!-- <span style="color: red;" *ngIf="movieForm.get('releaseDate')?.errors?.['required'] &&
+      movieForm.get('releaseDate')?.touched">Choose valid date</span> -->
   </div>
   <div>
     <label for="language">Language:</label>
@@ -39,3 +66,4 @@
   <button type="submit"  [disabled]="movieForm.invalid">Update Movie</button>
   <!-- <button type="submit" (click)="update(movie.id)" [disabled]="movieForm.invalid">Update Movie</button> -->
 </form>
+</ng-container>

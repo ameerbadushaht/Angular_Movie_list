@@ -29,5 +29,6 @@ import { MovieService } from 'src/app/service/movie.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent  {
+loading: any;
 
 }

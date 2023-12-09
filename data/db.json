@@ -63,6 +63,22 @@
       "language": "English",
       "imageUrl": "https://c4.wallpaperflare.com/wallpaper/455/861/85/jurassic-world-fallen-kingdom-2018-4k-8k-wallpaper-preview.jpg",
       "id": 12
+    },
+    {
+      "title": "Jawan ",
+      "duration": 165,
+      "releaseDate": "2023-09-07",
+      "language": "Hindi",
+      "imageUrl": "https://www.m9.news/wp-content/uploads/2023/07/SRK-Jawan.jpg",
+      "id": 13
+    },
+    {
+      "title": "TTT",
+      "duration": 344,
+      "releaseDate": "2023-12-29",
+      "language": "ENGLISH",
+      "imageUrl": "https://c4.wallpaperflare.com/wallpaper/536/846/466/interstellar-movie-movies-wallpaper-preview.jpg",
+      "id": 14
     }
   ],
   "theater": [
@@ -72,6 +88,22 @@
       "date": "2023-11-24",
       "ticketPrice": 120,
       "id": 1
+    },
+    {
+      "name": "Ashirwadh Cinemas",
+      "movies": "Avatar 2",
+      "date": "2023-11-26",
+      "ticketPrice": 300,
+      "id": 2
+    },
+    {
+      "name": "Sangeetha ",
+      "movies": [
+        "Kong: Skull Island"
+      ],
+      "date": "2023-11-12",
+      "ticketPrice": 150,
+      "id": 3
     }
   ],
   "users": [
@@ -99,6 +131,11 @@
       "email": "123@gmail.com",
       "password": "123",
       "id": 5
+    },
+    {
+      "email": "123@gmail.com",
+      "password": "123",
+      "id": 6
     }
   ]
 }

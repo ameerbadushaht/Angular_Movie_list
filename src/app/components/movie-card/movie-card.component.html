@@ -1,3 +1,13 @@
+<ngx-spinner
+bdColor="rgba(0, 0, 0, 0.8)"
+size="large"
+color="#f01c05"
+type="line-scale"
+[fullScreen]="true"
+><p style="color: white">Loading...</p></ngx-spinner
+>
+
+
 <div class="movie-card-container" >
   <div class="movie-card" *ngFor="let movie of movies"  >
       <img [src]="movie.imageUrl" class="movie-backImage" alt="Movie Image" />

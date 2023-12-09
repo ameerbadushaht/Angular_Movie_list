@@ -1,5 +1,16 @@
 <!-- movie-details.component.html -->
 
+<!-- <app-loader *ngIf="loading"></app-loader> -->
+
+<ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="medium"
+  color="#f01c05"
+  type="line-scale"
+  [fullScreen]="true"
+  ><p style="color: white">Loading...</p></ngx-spinner
+>
+
 <div class="movie-details-container">
   <div class="movie-details">
     <img [src]="movie.imageUrl" class="movie-backImage" alt="Movie Image" />
@@ -18,7 +29,7 @@
         </ul>
       </div>
       <div class="edit">
-        <button    (click)="editMovie(movie.id)">
+        <button (click)="editMovie(movie.id)">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"

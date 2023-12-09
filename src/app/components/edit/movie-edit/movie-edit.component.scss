@@ -43,3 +43,27 @@ form {
     }
   }
 }
+
+.glassy-form {
+  max-width: 400px;
+  margin-top: 50px;
+  padding: 20px;
+  // background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.glassy-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.glassy-form input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}

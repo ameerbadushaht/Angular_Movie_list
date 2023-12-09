@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-// import { Router } from '@angular/router';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class LogInComponent {
 loginForm: FormGroup;
 
 constructor( private formBuilder: FormBuilder,
-  // private router:Router,
+  private router:Router,
   public authService: AuthService){
 
   this.loginForm = this.formBuilder.group({
@@ -21,10 +22,41 @@ constructor( private formBuilder: FormBuilder,
   });
   }
 onSubmit() {
-  const user = this.loginForm.value;
-  console.log('Before submitted', user);
-  // this.authService.logIn(user)
-  this.authService.LogIn(user);
+  const { email, password } = this.loginForm.value;
+  console.log('Before submitted', email, password);
+  this.authService.login(email, password).subscribe(
+    response => {
+      console.log(response);
+      if (response.accessToken) {
+        this.authService.saveToken(response.accessToken);
+      }
+      // this.router.navigate(['/']).then(() => {
+      //   // Delayed navigation to give Angular time to detect the route change
+      //   // setTimeout(() => {
+      //   //   window.location.reload();
+      //   // });
+      // }
+      // );
+
+      Swal.fire({
+        title: 'Success!',
+        text: 'You have successfully logged in!',
+        icon: 'success',
+      }).then(() => {
+        this.router.navigate(['/']).then(() => {
+          // Delayed navigation to give Angular time to detect the route change
+          setTimeout(() => {
+            window.location.reload();
+          });
+        });
+      });
+
+    },
+    error => {
+      console.error(error); // Handle error
+    }
+
+  );
 }
 
 }

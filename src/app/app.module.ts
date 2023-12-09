@@ -22,6 +22,11 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { LogInComponent } from './components/log-in/log-in.component';
 import { MovieShowsInterceptor } from './movie-shows.interceptor';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoaderComponent } from './components/loader/loader.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +45,8 @@ import { MovieShowsInterceptor } from './movie-shows.interceptor';
     SuccessfulComponent,
     SignUpComponent,
     LogInComponent,
+    LoaderComponent
+
 
   ],
   imports: [
@@ -47,12 +54,17 @@ import { MovieShowsInterceptor } from './movie-shows.interceptor';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    NgxSpinnerModule
 
   ],
   providers: [
+
+
     {
       provide:HTTP_INTERCEPTORS,useClass:MovieShowsInterceptor,
       multi:true
+
     }
   ],
   bootstrap: [AppComponent]

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-sign-up',
@@ -29,17 +30,38 @@ export class SignUpComponent implements OnInit {
     console.log('Before submitted', newUser);
 
     if (this.signupForm.valid) {
-      this.authService.signUp(newUser).subscribe((response) => {
-        console.log('submitted', newUser);
-       this.router.navigateByUrl('/logIn')
-        this.clearForm();
-      },
-      (error) => {
-        console.error('Error during signup:', error);
-        // Handle error appropriately (e.g., show a message to the user)
-      });
+      const { email, password } = this.signupForm.value;
+      this.authService.signup(email, password).subscribe(
+        response => {
+          console.log('response::',response);
+
+          if (response.statusCode === 409) {
+            // Email already registered error
+            console.log('Email already registered!');
+          console.log('response::',response.statusCode);
+
+            Swal.fire({
+              title: 'Email Already Exists!',
+              text: 'This email address is already registered with another account.',
+              icon: 'warning',
+            });
+          } else {
+            // Signup successful
+            console.log('User created successfully!');
+            this.clearForm();
+            this.router.navigate(['/login']);
+            // ...
+          }
+        },
+        error => {
+          console.error(error);
+          // Handle other errors
+        }
+      );
     }
+
   }
+
 
   clearForm() {
     this.signupForm.reset();

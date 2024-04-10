@@ -1,0 +1,73 @@
+
+<div class="editForm">
+
+<ng-container *ngIf="!accessToken">
+  <app-sign-up></app-sign-up>
+</ng-container>
+
+<ng-container *ngIf="accessToken">
+  <!-- <app-loader *ngIf="loading"></app-loader> -->
+
+  <ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="large"
+  color="#f01c05"
+  type="line-scale"
+  [fullScreen]="true"
+  ><p style="color: white">Updating, please wait a moment...</p></ngx-spinner
+>
+
+
+
+  <form [formGroup]="movieForm" (ngSubmit)="onSubmit()" class="glassy-form">
+    <div>
+      <label for="title">Movie Title:</label>
+      <input type="text" id="title" formControlName="title" placeholder="Movie Title" required>
+      <span  style="color: red;"  *ngIf="movieForm.get('title')?.errors?.['required'] && movieForm.get('title')?.touched">
+        This field is required
+      </span>
+      <span
+      style="color: red;"
+        *ngIf="
+          movieForm.get('title')?.errors?.['capital'] &&
+          !movieForm.get('title')?.errors?.['required'] &&
+          movieForm.get('title')?.touched
+        "
+      >
+        First letter should be in Capital
+      </span>
+    </div>
+  <div>
+    <label for="duration">Duration (minutes):</label>
+    <input type="number" id="duration" formControlName="duration" placeholder="Duration" required>
+    <span style="color: red;" *ngIf="movieForm.get('duration')?.errors?.['required'] &&
+      movieForm.get('duration')?.touched">This field is required</span>
+    <span style="color: red;" *ngIf="movieForm.get('duration')?.errors?.['min'] &&
+      movieForm.get('duration')?.touched">Duration should be more than 40 minutes</span>
+  </div>
+  <div>
+    <label for="releaseDate">Release Date:</label>
+    <input type="date" id="releaseDate" formControlName="releaseDate" >
+    <!-- <span style="color: red;" *ngIf="movieForm.get('releaseDate')?.errors?.['required'] &&
+      movieForm.get('releaseDate')?.touched">Choose valid date</span> -->
+  </div>
+  <div>
+    <label for="language">Language:</label>
+    <input type="text" id="language" formControlName="language" placeholder="Movie Language" required>
+    <span style="color: red;" *ngIf="movieForm.get('language')?.errors?.['required'] &&
+      movieForm.get('language')?.touched">This field is required</span>
+    <span style="color: red;" *ngIf="movieForm.get('language')?.errors?.['capital'] &&
+      !movieForm.get('language')?.errors?.['required'] && movieForm.get('language')?.touched">First letter should be in Capital</span>
+  </div>
+
+  <div>
+    <label for="imageUrl">Image URL:</label>
+    <input type="text" id="imageUrl" formControlName="imageUrl" placeholder="Add Image URL" required>
+    <span style="color: red;" *ngIf="movieForm.get('imageUrl')?.errors?.['required'] &&
+      movieForm.get('imageUrl')?.touched">Choose valid URL</span>
+  </div>
+  <button type="submit"  [disabled]="movieForm.invalid">Update Movie</button>
+  <!-- <button type="submit" (click)="update(movie.id)" [disabled]="movieForm.invalid">Update Movie</button> -->
+</form>
+</ng-container>
+</div>

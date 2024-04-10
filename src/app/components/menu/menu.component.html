@@ -1,20 +1,28 @@
 <ul class="menu-list">
   <li>
     <a routerLink="/" routerLinkActive="active">Home</a>
+  </li>
+  <li *ngIf="this.currentRole === 'admin'">
     <a routerLink="/addMovie" routerLinkActive="active">Add Movies</a>
+  </li>
+  <li *ngIf="this.currentRole === 'admin'">
     <a routerLink="/addTheater" routerLinkActive="active">Add Theater</a>
+  </li>
 
-    <!-- Conditionally render links based on token existence -->
-    <ng-container *ngIf="!accessToken">
-      <a href="/signUp">Sign Up</a>
-    </ng-container>
+  <li *ngIf="this.currentRole === 'admin'">
+    <a routerLink="/admin" routerLinkActive="active">Admin Panel</a>
+  </li>
 
-    <ng-container *ngIf="accessToken">
-      <a href="#" (click)="logout()">Logout</a>
-    </ng-container>
+  <!-- Conditionally render links based on token existence -->
+  <li *ngIf="!accessToken">
+    <a routerLink="/signUp" routerLinkActive="active">Sign Up</a>
+  </li>
 
+  <li *ngIf="accessToken">
+    <a href="#" (click)="logout()">Logout</a>
+  </li>
+
+  <li>
     <a routerLink="/about" routerLinkActive="active">About</a>
   </li>
 </ul>
-
-

@@ -1,9 +1,16 @@
-
-/* You can add global styles to this file, and also import other style files */
-*{
+* {
   margin: 0;
+  
+
 }
 
-html, body { height: 100%; }
-body { margin: 0;background-color: #0c111b; font-family: 'Montserrat', sans-serif;
+
+html,body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(to top, #001f3f 40%, #246b9a); /* Dark blue to light blue gradient */
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: 'Montserrat', sans-serif;
 }
+

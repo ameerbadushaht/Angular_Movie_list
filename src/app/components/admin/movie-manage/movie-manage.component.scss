@@ -1,0 +1,44 @@
+/* movies.component.css */
+
+.container {
+  padding: 20px;
+  color: white;
+}
+
+.movies-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-item {
+  display: flex;
+  background-color: rgba(0, 31, 63, 0.4); /* Adjust the opacity as needed */
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.movie-details {
+  flex: 1;
+}
+
+.movie-actions {
+  display: flex;
+  align-items: center;
+}
+
+.edit-button,
+.delete-button {
+  background-color: #FF4136; /* Red color for buttons */
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin-right: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.edit-button:hover,
+.delete-button:hover {
+  background-color: #FF725C; /* Lighter red color on hover */
+}

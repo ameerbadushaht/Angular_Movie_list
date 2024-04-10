@@ -1,0 +1,78 @@
+/* theater-table.component.css */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  color: white;
+
+
+}
+
+thead {
+  background-color: #001f3f; /* Dark blue background color */
+  color: white;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd; /* Light gray border */
+}
+
+tbody tr:hover {
+  background-color: #78bfb3;
+  color: #001f3f;/* Light gray background color on hover */
+}
+
+
+/* theater-table.component.css */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+thead {
+  background-color: #001f3f; /* Dark blue background color */
+  color: white;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd; /* Light gray border */
+}
+
+tbody tr:hover {
+  background-color: #8abcbc; /* Light gray background color on hover */
+}
+
+.edit-button, .delete-button {
+  background-color: #4CAF50; /* Green background color for edit button */
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 2px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.edit-button:hover, .delete-button:hover {
+  background-color: #45a049; /* Darker green color on hover */
+}
+
+.delete-button {
+  background-color: #f44336; /* Red background color for delete button */
+}
+
+.delete-button:hover {
+  background-color: #d32f2f; /* Darker red color on hover */
+}
+

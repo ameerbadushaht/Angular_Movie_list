@@ -1,0 +1,104 @@
+<!-- movie-details.component.html -->
+
+<!-- <app-loader *ngIf="loading"></app-loader> -->
+
+<ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="medium"
+  color="#f01c05"
+  type="line-scale"
+  [fullScreen]="true"
+  ><p style="color: white">Loading...</p></ngx-spinner
+>
+<!--
+<div class="movie-details-container">
+  <div class="movie-details">
+    <img [src]="movie.imageUrl" class="movie-backImage" alt="Movie Image" />
+    <div class="details">
+      <div class="details-content">
+        <h2>{{ movie.title }}</h2>
+        <p><strong>Duration:</strong> {{ movie.duration }} minutes</p>
+        <p><strong>Release Date:</strong> {{ movie.releaseDate | date:'yyyy-MM-dd' }}</p>
+        <p><strong>Language:</strong> {{ movie.language }}</p>
+
+      </div>
+      <div class="theater">
+        <h3>Theaters:</h3>
+        <ul>
+          <li *ngFor="let theater of movie.theater">{{ theater.name }}</li>
+        </ul>
+      </div>
+      <div class="edit">
+        <button (click)="editMovie(movie.id)">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-pencil-square"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"
+            />
+            <path
+              fill-rule="evenodd"
+              d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <button (click)="goBack()">Go Back</button>
+</div> -->
+
+<div class="movie-details-container">
+  <div class="top">
+    <div class="left">
+      <img [src]="movie.imageUrl" class="movie-backImage" alt="Movie Image" />
+    </div>
+    <div class="right">
+      <div class="details1">
+        <div class="heading">
+          <h2>{{ movie.title }}</h2>
+        </div>
+        <div class="details1-right">
+          <div class="add-to-mylist">
+            <div class="atml__text">Add to My List</div>
+          </div>
+          <div class="share-button">
+            <div class="share-text disp-inline">Share</div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="details"></div> -->
+      <div class="details2">
+        <p>{{ (movie.duration / 60).toFixed(2) }} hours</p>
+        <p>{{ movie.releaseDate | date : "yyyy" }}</p>
+        <p>{{ movie.language }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom"></div>
+
+  <div class="movie-card-container">
+    <div
+      class="movie-cardSlip"
+      *ngFor="let movie of moviesCard"
+      (click)="onCardClick(movie._id)"
+    >
+      <img [src]="movie.imageUrl" class="movie-backImage" alt="Movie Image" />
+      <div class="movie-details">
+        <h2>{{ movie.title }}</h2>
+        <div class="movieCard-content">
+          <p>{{ movie.duration }} minutes&nbsp;&nbsp;&nbsp;&nbsp;</p>
+          <!-- <p><strong>Release Date:</strong> {{ movie.releaseDate }}</p> -->
+          <p>{{ movie.language }}</p>
+          <!-- <p><strong>id</strong> {{ movie.id }}</p> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

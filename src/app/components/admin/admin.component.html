@@ -1,0 +1,27 @@
+<!-- app.component.html -->
+
+<div class="navbar">
+  <ul class="nav-tabs">
+    <li [class.active]="selectedTab === 'users'" (click)="selectTab('users')">Users</li>
+    <li [class.active]="selectedTab === 'movies'" (click)="selectTab('movies')">Movies</li>
+    <li [class.active]="selectedTab === 'theaters'" (click)="selectTab('theaters')">Theaters</li>
+    <li [class.active]="selectedTab === 'reports'" (click)="selectTab('reports')">Reports</li>
+
+
+  </ul>
+</div>
+
+<div class="container">
+  <div *ngIf="selectedTab === 'movies'">
+    <app-movie-manage></app-movie-manage>
+  </div>
+  <div *ngIf="selectedTab === 'reports'">
+    <app-reports></app-reports>
+  </div>
+  <div *ngIf="selectedTab === 'theaters'">
+    <app-theater-manage></app-theater-manage>
+  </div>
+  <div *ngIf="selectedTab === 'users'">
+    <app-user-manage></app-user-manage>
+  </div>
+</div>

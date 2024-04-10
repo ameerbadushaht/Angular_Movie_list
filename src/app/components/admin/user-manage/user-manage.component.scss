@@ -1,0 +1,68 @@
+/* users.component.css */
+
+.container {
+  padding: 20px;
+  color: #ffffff;
+}
+
+h2 {
+  color: #ffffff; /* Dark blue color for heading */
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.user-table th, .user-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd; /* Light gray border */
+}
+
+.user-table th {
+  background-color: #24236add; /* Light gray background color for table header */
+}
+
+.user-row:hover {
+  background-color: #586e87; 
+  color: aliceblue;/* Light gray background color on hover */
+}
+
+.delete-button {
+  background-color: #e80f00; /* Red background color for buttons */
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin-right: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+
+.block-button{
+  background-color: #e85d00; /* Red background color for buttons */
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin-right: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.delete-button:hover{
+  background-color: #960707; /* Darker red color on hover */
+}
+
+
+.block-button:hover {
+  background-color: #983d00; /* Darker red color on hover */
+}

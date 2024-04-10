@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { MovieAddComponent } from './components/movie-add/movie-add.component';
-import { TheaterAddComponent } from './components/theater-add/theater-add.component';
+import { MovieAddComponent } from './components/admin/movie-manage/movie-add/movie-add.component';
+import { TheaterAddComponent } from './components/Theator/theater-add/theater-add.component';
 import { AboutComponent } from './components/about/about.component';
-import { MovieDetailedComponent } from './components/movie-detailed/movie-detailed.component';
-import { EditComponent } from './components/edit/edit.component';
-import { PurchaseComponent } from './components/purchase/purchase.component';
-import { PaymentComponent } from './components/payment/payment.component';
-import { SuccessfulComponent } from './components/successful/successful.component';
-import { SignUpComponent } from './components/sign-up/sign-up.component';
-import { LogInComponent } from './components/log-in/log-in.component';
+import { MovieDetailedComponent } from './components/Movie/movie-detailed/movie-detailed.component';
+
+import { PurchaseComponent } from './components/Cart/purchase/purchase.component';
+import { PaymentComponent } from './components/Cart/payment/payment.component';
+import { SuccessfulComponent } from './components/Cart/successful/successful.component';
+import { SignUpComponent } from './components/Auth/sign-up/sign-up.component';
+import { LogInComponent } from './components/Auth/log-in/log-in.component';
+import { MovieEditComponent } from './components/admin/movie-manage/movie-edit/movie-edit.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 const routes: Routes = [
 {
@@ -23,6 +25,10 @@ const routes: Routes = [
 {
   path:'addTheater',
   component:TheaterAddComponent
+},
+{
+  path:'admin',
+  component:AdminComponent
 },{
   path:'about',
   component:AboutComponent
@@ -31,7 +37,7 @@ const routes: Routes = [
   component:MovieDetailedComponent
 },{
   path:'edit/:id',
-  component:EditComponent
+  component:MovieEditComponent
 },{
   path:'purchase',
   component:PurchaseComponent

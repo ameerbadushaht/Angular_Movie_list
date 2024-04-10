@@ -1,0 +1,21 @@
+<!-- movies.component.html -->
+
+<div class="container">
+  <h2>Movies List</h2>
+  <div class="movies-list">
+    <div *ngFor="let movie of movies" class="movie-item">
+      <div class="movie-details">
+        <h3>{{ movie.title }}</h3>
+        <p>Director: {{ movie.director }}</p>
+        <p>Year: {{ movie.year }}</p>
+        <p>Genre: {{ movie.genre }}</p>
+        <p>theators:</p>
+        <p *ngFor="let theater of movie.theater"> {{ theater.name }}</p>
+      </div>
+      <div class="movie-actions">
+        <button (click)="editMovie(movie)" class="edit-button">Edit</button>
+        <button (click)="deleteMovie(movie.id)" class="delete-button">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

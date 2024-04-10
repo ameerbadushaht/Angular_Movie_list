@@ -1,0 +1,31 @@
+/* app.component.css */
+
+.navbar {
+  background-color: #001f3f; /* Dark blue background color */
+  color: white;
+  padding: 10px;
+}
+
+.nav-tabs {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.nav-tabs li {
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.nav-tabs li:hover {
+  background-color: #003366; /* Darker blue color on hover */
+}
+
+.nav-tabs li.active {
+  background-color: #246b9a; /* Light blue color for active tab */
+}
+
+.container {
+  padding: 20px;
+}

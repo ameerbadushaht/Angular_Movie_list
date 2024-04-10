@@ -1,0 +1,25 @@
+
+<table>
+  <thead>
+    <tr>
+      <th>Theater Name</th>
+      <th>Movies</th>
+      <th>Date</th>
+      <th>Ticket Price</th>
+      <th>Actions</th> <!-- New column for buttons -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let theater of theater">
+      <td>{{ theater.theaterName }}</td>
+      <td>{{ theater.movieTitle }}</td>
+      <td>{{ theater.date | date:'dd-MM-yyyy'}}</td>
+      <td>{{ theater.ticketPrice }}</td>
+      <td>
+        <button (click)="editTheater(theater.id)" class="edit-button">Edit</button>
+        <button (click)="deleteTheater(theater.id)" class="delete-button">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+

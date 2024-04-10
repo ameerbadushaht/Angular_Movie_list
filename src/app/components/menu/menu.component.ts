@@ -9,12 +9,17 @@ import Swal from 'sweetalert2';
 })
 export class MenuComponent implements OnInit{
   accessToken: string | null;
+  currentRole: string | null;
   constructor(private authService: AuthService) {
     this.accessToken = this.authService.getToken();
+
+
   }
 
 
   ngOnInit(): void {
+    this.currentRole=localStorage.getItem('user');
+    console.log('current user is',this.currentRole)
   }
   logout(): void {
     Swal.fire({

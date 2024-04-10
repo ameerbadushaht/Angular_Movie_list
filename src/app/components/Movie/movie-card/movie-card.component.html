@@ -1,0 +1,23 @@
+<ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="large"
+  color="#f01c05"
+  type="line-scale"
+  [fullScreen]="true"
+  ><p style="color: white">Loading...</p></ngx-spinner
+>
+
+<div class="movie-card-container">
+  <div class="movie-cardSlip" *ngFor="let movie of movies" (click)="onCardClick(movie._id)">
+    <img [src]="movie.imageUrl" class="movie-backImage" alt="Movie Image" />
+    <div class="movie-details" >
+      <h2>{{ movie.title }}</h2>
+      <div class="movieCard-content">
+        <p>{{ movie.duration }} minutes&nbsp;&nbsp;&nbsp;&nbsp;</p>
+        <!-- <p><strong>Release Date:</strong> {{ movie.releaseDate }}</p> -->
+        <p>{{ movie.language }}</p>
+        <!-- <p><strong>id</strong> {{ movie.id }}</p> -->
+      </div>
+    </div>
+  </div>
+</div>

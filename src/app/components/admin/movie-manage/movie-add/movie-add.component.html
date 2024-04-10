@@ -1,0 +1,75 @@
+
+<ng-container *ngIf="!accessToken">
+  <app-sign-up></app-sign-up>
+</ng-container>
+
+<ng-container class="movieAdd" *ngIf="accessToken">
+<form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="title">Movie Title:</label>
+      <input type="text" id="title" formControlName="title" placeholder="Movie Title" required>
+      <span style="color: red;" *ngIf="movieForm.get('title')?.errors?.['required'] &&
+      movieForm.get('title')?.touched">This field is required</span>
+      <span style="color: red;" *ngIf="movieForm.get('title')?.errors?.['capital'] &&
+      !movieForm.get('title')?.errors?.['required'] && movieForm.get('title')?.touched">First letter should be in Capital</span>
+    </div>
+  <div>
+    <label for="duration">Duration (minutes):</label>
+    <input type="number" id="duration" formControlName="duration" placeholder="Duration" required>
+    <span style="color: red;" *ngIf="movieForm.get('releaseDate')?.errors?.['required']
+    && movieForm.get('duration')?.touched && movieForm.get('duration').invalid">
+      Duration should be more than 40 minutes</span>
+  </div>
+  <div>
+    <label for="releaseDate">Release Date:</label>
+    <input type="date" id="releaseDate" formControlName="releaseDate" required>
+    <span style="color: red;" *ngIf="movieForm.get('releaseDate')?.errors?.['required']
+    && movieForm.get('releaseDate')?.touched && movieForm.get('releaseDate').invalid">
+      Choose valid date</span>
+  </div>
+  <div>
+    <label for="language">Language:</label>
+    <input type="text" id="language" formControlName="language" placeholder="Movie Language" required>
+    <span style="color: red;" *ngIf="movieForm.get('language')?.errors?.['required'] &&
+      movieForm.get('language')?.touched">This field is required</span>
+    <span style="color: red;" *ngIf="movieForm.get('language')?.errors?.['capital'] &&
+      !movieForm.get('language')?.errors?.['required'] && movieForm.get('language')?.touched">First letter should be in Capital</span>
+      </div>
+  <div>
+    <label for="imageUrl">Image URL:</label>
+    <input type="text" id="imageUrl" formControlName="imageUrl" placeholder="Add Image URL" required>
+    <span style="color: red;" *ngIf="movieForm.get('releaseDate')?.errors?.['required']
+    && movieForm.get('imageUrl')?.touched && movieForm.get('imageUrl').invalid">
+      Choose valid URL</span>
+  </div>
+  <button type="submit" [disabled]="movieForm.invalid">Add Movie</button>
+</form>
+
+<!-- <table>
+  <thead>
+    <tr>
+      <th>Movie Title</th>
+      <th>Duration (minutes)</th>
+      <th>Release Date</th>
+      <th>Language</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let movie of movies">
+      <td>{{ movie.title }}</td>
+      <td>{{ movie.duration }}</td>
+      <td>{{ movie.releaseDate }}</td>
+      <td>{{ movie.language }}</td>
+    </tr>
+    <tr *ngFor="let movie of movieService.movieData()">
+      <td>{{ movie.title }}</td>
+      <td>{{ movie.duration }}</td>
+      <td>{{ movie.releaseDate }}</td>
+      <td>{{ movie.language }}</td>
+
+    </tr>
+  </tbody>
+</table> -->
+<!-- <app-table-show></app-table-show> -->
+
+</ng-container>
